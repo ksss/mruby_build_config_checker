@@ -1,0 +1,44 @@
+#! /usr/bin/env ruby
+
+require "mruby_build_checker/version"
+require 'octokit'
+
+module MRuby
+  class Build
+    CONFIG_PATH = "build_config.rb"
+
+    def initialize(name, &block)
+      @name = name
+      @tempfile = Tempfile.new("")
+      @blobs = IO.foreach(CONFIG_PATH).to_a
+      instance_eval(&block)
+      system "diff", "-u", CONFIG_PATH, @tempfile.path
+    ensure
+      @tempfile.close!
+    end
+
+    def gem(_name = nil, path: nil, github: nil, checksum_hash: nil, branch: 'master')
+      if github
+        repo = Octokit::Repository.from_url("https://github.com/#{github}/blob/#{branch}")
+        head_sha = Octokit.list_commits(repo).first['sha']
+        if !checksum_hash || head_sha != checksum_hash
+          @tempfile.puts %(  conf.gem github: "#{github}", checksum_hash: "#{head_sha}")
+        else
+          @tempfile.puts build_config_caller_line
+        end
+      end
+    end
+
+    private
+
+    def build_config_caller_line
+      m = /(^.*):(\d+?):in /.match(caller(2)[0])
+      @blobs[m[2].to_i - 1]
+    end
+
+    def method_missing(name, *args, &block)
+    end
+  end
+end
+
+load MRuby::Build::CONFIG_PATH

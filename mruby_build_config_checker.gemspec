@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mruby_build_checker/version'
+require 'mruby_build_config_checker/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mruby_build_checker"
-  spec.version       = MrubyBuildChecker::VERSION
+  spec.name          = "mruby_build_config_checker"
+  spec.version       = MrubyBuildConfigChecker::VERSION
   spec.authors       = ["ksss"]
   spec.email         = ["co000ri@gmail.com"]
 

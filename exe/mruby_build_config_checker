@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-require "mruby_build_checker/version"
+require "mruby_build_config_checker/version"
 require 'octokit'
 require 'tempfile'
 

@@ -1,13 +1,13 @@
-# MrubyBuildChecker
+# MrubyBuildConfigChecker
 
 Print a patch build_config.rb what used head sha.
 
 ```
 # In the directory where build_config.rb is located.
-$ mruby_build_checker
+$ mruby_build_config_checker
 
 # Apply the patch directly.
-$ patch -p1 < mruby_build_checker
+$ patch -p1 < mruby_build_config_checker
 ```
 
 ## Installation
@@ -15,7 +15,7 @@ $ patch -p1 < mruby_build_checker
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mruby_build_checker'
+gem 'mruby_build_config_checker'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mruby_build_checker
+    $ gem install mruby_build_config_checker
 
 ## Development
 
@@ -34,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ksss/mruby_build_checker.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ksss/mruby_build_config_checker.
 
 
 ## License

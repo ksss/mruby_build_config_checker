@@ -1,13 +1,14 @@
-# MrubyBuildConfigChecker
+# mruby_build_config_checker
 
 Print a patch build_config.rb what used head sha.
 
 ```
 # In the directory where build_config.rb is located.
 $ mruby_build_config_checker
+# print diff by `diff -u` command
 
 # Apply the patch directly.
-$ patch -p1 < mruby_build_config_checker
+$ mruby_build_config_checker | patch -up0
 ```
 
 ## Installation

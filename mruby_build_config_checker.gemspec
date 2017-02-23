@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{mruby's build_config.rb update checker.}
   spec.description   = %q{mruby's build_config.rb update checker.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/ksss/mruby_build_config_checker"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
